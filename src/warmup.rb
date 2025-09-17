@@ -1,23 +1,44 @@
 def fib(n)
-    raise Exception, "Not Implemented"
+    if n == 0
+        []
+    elsif n == 1
+        [0]
+    else
+        fibo = [0, 1]
+        (n-2).times do
+            fibo << fibo[-1] + fibo[-2]
+        end
+    fibo
+    end
 end
 
 def isPalindrome(n)
-    raise Exception, "Not Implemented"
+    s = n.to_s
+    s == s.reverse
 end
 
 def nthmax(n, a)
-    raise Exception, "Not Implemented"
+    list = a.uniq.sort.reverse
+    list[n]
 end
 
 def freq(s)
-    raise Exception, "Not Implemented"
+    if s.empty?
+        return ""
+    end
+    count = Hash.new(0)
+    s.each_char { |ch| count[ch] += 1 }
+    count.max_by { |_, v| v}[0]
 end
 
 def zipHash(arr1, arr2)
-    raise Exception, "Not Implemented"
+    if arr1.length == arr2.length
+        Hash[arr1.zip(arr2)]
+    else
+        return nil
+    end
 end
 
 def hashToArray(hash)
-    raise Exception, "Not Implemented"
+    hash.map { |k, v| [k, v] }
 end
